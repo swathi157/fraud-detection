@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Fraud Detection & Risk Assessment System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+    <div class="container mx-auto px-4 py-6 max-w-7xl">
+        <!-- Header -->
+        <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-slate-800">🛡️ Advanced Fraud Detection System</h1>
+                    <p class="text-slate-600 mt-1">AI-powered conversation & document analysis for loan applications</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-sm text-slate-500">Session ID: FDS-2024-001</div>
+                    <div class="text-sm text-slate-500">Analyst: AI Assistant</div>
+                    <div class="text-xs text-green-600 mt-1">✅ Regulatory Compliant</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Analysis Interface -->
+        <div class="grid lg:grid-cols-2 gap-6 mb-6">
+            <!-- Left Panel: Input Analysis -->
+            <div class="space-y-6">
+                <!-- Applicant Information -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">📋 Applicant Profile</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Application ID</label>
+                            <input type="text" id="appId" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="LN-2024-12345">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Applicant Name</label>
+                            <input type="text" id="applicantName" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="John Smith">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Phone Number</label>
+                            <input type="text" id="phoneNumber" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="+1-555-0123">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+                            <input type="email" id="emailAddress" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="john@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Loan Amount ($)</label>
+                            <input type="number" id="loanAmount" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="75000">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Monthly Income ($)</label>
+                            <input type="number" id="monthlyIncome" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="8500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conversation Analysis -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">💬 Conversation Analysis</h2>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-2">Conversation Transcript</label>
+                            <textarea id="conversationText" rows="6" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Paste conversation transcript, chat logs, or email exchanges here for analysis...
+
+Example:
+Agent: What is your current employment status?
+Applicant: I work at ABC Corp as a manager
+Agent: How long have you been employed there?
+Applicant: About 3 years... well, maybe 2 and a half
+Agent: What is your exact monthly salary?
+Applicant: It varies, but around 8000-9000"></textarea>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Communication Channel</label>
+                                <select id="commChannel" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Select channel</option>
+                                    <option value="phone">Phone Call</option>
+                                    <option value="chat">Live Chat</option>
+                                    <option value="email">Email</option>
+                                    <option value="video">Video Call</option>
+                                    <option value="in-person">In-Person</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Response Pattern</label>
+                                <select id="responsePattern" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Assess pattern</option>
+                                    <option value="normal">Normal & Cooperative</option>
+                                    <option value="hesitant">Hesitant/Uncertain</option>
+                                    <option value="evasive">Evasive Responses</option>
+                                    <option value="aggressive">Overly Aggressive</option>
+                                    <option value="scripted">Scripted/Rehearsed</option>
+                                    <option value="inconsistent">Inconsistent Answers</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Document Analysis -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">📄 Document Verification</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">ID Document Status</label>
+                                <select id="idDocStatus" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Select status</option>
+                                    <option value="verified">✅ Verified - Authentic</option>
+                                    <option value="minor-issues">⚠️ Minor Quality Issues</option>
+                                    <option value="suspicious">🔍 Suspicious Elements</option>
+                                    <option value="tampered">🚨 Signs of Tampering</option>
+                                    <option value="fake">❌ Likely Counterfeit</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Income Proof Status</label>
+                                <select id="incomeDocStatus" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Select status</option>
+                                    <option value="verified">✅ Matches Stated Income</option>
+                                    <option value="minor-discrepancy">⚠️ Minor Discrepancy</option>
+                                    <option value="major-discrepancy">🔍 Major Discrepancy</option>
+                                    <option value="suspicious-format">🚨 Suspicious Formatting</option>
+                                    <option value="fabricated">❌ Likely Fabricated</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Bank Statement Analysis</label>
+                                <select id="bankStatementStatus" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Select status</option>
+                                    <option value="consistent">✅ Consistent Patterns</option>
+                                    <option value="irregular-deposits">⚠️ Irregular Deposits</option>
+                                    <option value="insufficient-history">🔍 Insufficient History</option>
+                                    <option value="suspicious-transactions">🚨 Suspicious Transactions</option>
+                                    <option value="manipulated">❌ Signs of Manipulation</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-2">Address Verification</label>
+                                <select id="addressStatus" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                    <option value="">Select status</option>
+                                    <option value="verified">✅ Address Confirmed</option>
+                                    <option value="partial">⚠️ Partial Verification</option>
+                                    <option value="mismatch">🔍 Address Mismatch</option>
+                                    <option value="unverifiable">🚨 Cannot Verify</option>
+                                    <option value="fake">❌ Fake Address</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-slate-700 mb-1">Document Analysis Notes</label>
+                            <textarea id="docNotes" rows="3" class="w-full p-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Enter specific observations about document quality, formatting, inconsistencies, or anomalies..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Real-time Analysis -->
+            <div class="space-y-6">
+                <!-- Risk Score Display -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">🎯 Risk Assessment</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div class="text-center">
+                            <div id="overallRiskScore" class="text-4xl font-bold text-slate-600">-</div>
+                            <div class="text-sm text-slate-500">Overall Risk Score</div>
+                            <div id="riskLevel" class="mt-2 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-600">Not Analyzed</div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-slate-600">Conversation Risk</span>
+                                <span id="convRisk" class="text-sm font-medium">-</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-slate-600">Document Risk</span>
+                                <span id="docRisk" class="text-sm font-medium">-</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-slate-600">Behavioral Risk</span>
+                                <span id="behaviorRisk" class="text-sm font-medium">-</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-slate-600">Consistency Risk</span>
+                                <span id="consistencyRisk" class="text-sm font-medium">-</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <canvas id="riskRadarChart" width="400" height="300"></canvas>
+                </div>
+
+                <!-- AI Conversation Analysis -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">🤖 AI Conversation Insights</h2>
+                    <div id="conversationInsights" class="space-y-3">
+                        <div class="text-center text-slate-400 py-8">
+                            <div class="text-4xl mb-2">🔍</div>
+                            <div>Enter conversation data to see AI analysis</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-xl font-semibold text-slate-800 mb-4">⚡ Quick Actions</h2>
+                    <div class="space-y-3">
+                        <button onclick="analyzeApplication()" class="w-full bg-blue-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-blue-700 transition duration-200">
+                            🔍 Analyze Application
+                        </button>
+                        <button onclick="generateReport()" class="w-full bg-green-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-green-700 transition duration-200">
+                            📄 Generate Report
+                        </button>
+                        <button onclick="escalateCase()" class="w-full bg-red-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-red-700 transition duration-200">
+                            🚨 Escalate Case
+                        </button>
+                        <button onclick="clearForm()" class="w-full bg-gray-500 text-white py-2 px-4 rounded-lg font-medium hover:bg-gray-600 transition duration-200">
+                            🔄 Clear Form
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Results -->
+        <div id="analysisResults" class="hidden space-y-6">
+            <!-- Suspicious Findings -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-semibold text-red-700 mb-4">🚨 Suspicious Findings</h2>
+                <div id="suspiciousFindings" class="space-y-3"></div>
+            </div>
+
+            <!-- Suggested Actions -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-semibold text-blue-700 mb-4">📋 Recommended Actions</h2>
+                <div id="recommendedActions" class="space-y-3"></div>
+            </div>
+
+            <!-- Detailed Analysis Report -->
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-semibold text-slate-800 mb-4">📊 Detailed Analysis Report</h2>
+                <div id="detailedReport" class="prose max-w-none"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let riskChart;
+
+        function analyzeApplication() {
+            // Get all form data
+            const appData = {
+                appId: document.getElementById('appId').value || 'LN-2024-' + Math.floor(Math.random() * 10000),
+                applicantName: document.getElementById('applicantName').value || 'Unknown Applicant',
+                phoneNumber: document.getElementById('phoneNumber').value,
+                emailAddress: document.getElementById('emailAddress').value,
+                loanAmount: parseFloat(document.getElementById('loanAmount').value) || 0,
+                monthlyIncome: parseFloat(document.getElementById('monthlyIncome').value) || 0,
+                conversationText: document.getElementById('conversationText').value,
+                commChannel: document.getElementById('commChannel').value,
+                responsePattern: document.getElementById('responsePattern').value,
+                idDocStatus: document.getElementById('idDocStatus').value,
+                incomeDocStatus: document.getElementById('incomeDocStatus').value,
+                bankStatementStatus: document.getElementById('bankStatementStatus').value,
+                addressStatus: document.getElementById('addressStatus').value,
+                docNotes: document.getElementById('docNotes').value
+            };
+
+            // Perform analysis
+            const analysis = performFraudAnalysis(appData);
+            
+            // Update UI with results
+            updateRiskDisplay(analysis);
+            updateConversationInsights(appData.conversationText, analysis);
+            showAnalysisResults(analysis, appData);
+            
+            // Scroll to results
+            document.getElementById('analysisResults').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function performFraudAnalysis(data) {
+            // Analyze conversation
+            const conversationRisk = analyzeConversation(data.conversationText, data.responsePattern);
+            
+            // Analyze documents
+            const documentRisk = analyzeDocuments(data.idDocStatus, data.incomeDocStatus, data.bankStatementStatus, data.addressStatus);
+            
+            // Analyze behavioral patterns
+            const behaviorRisk = analyzeBehavior(data.responsePattern, data.commChannel);
+            
+            // Check consistency
+            const consistencyRisk = analyzeConsistency(data.loanAmount, data.monthlyIncome, data.conversationText);
+            
+            // Calculate overall risk
+            const overallRisk = Math.round((conversationRisk + documentRisk + behaviorRisk + consistencyRisk) / 4);
+            
+            return {
+                overallRisk,
+                conversationRisk,
+                documentRisk,
+                behaviorRisk,
+                consistencyRisk,
+                riskLevel: getRiskLevel(overallRisk),
+                findings: generateFindings(conversationRisk, documentRisk, behaviorRisk, consistencyRisk, data),
+                actions: generateActions(overallRisk, conversationRisk, documentRisk, behaviorRisk, consistencyRisk)
+            };
+        }
+
+        function analyzeConversation(text, pattern) {
+            let risk = 0;
+            
+            if (!text || text.trim().length < 50) return 20; // Insufficient data
+            
+            const lowerText = text.toLowerCase();
+            
+            // Check for suspicious patterns
+            const suspiciousPatterns = [
+                'i think', 'maybe', 'approximately', 'around', 'not sure',
+                'let me check', 'i forgot', 'varies', 'depends'
+            ];
+            
+            const evasiveCount = suspiciousPatterns.filter(pattern => lowerText.includes(pattern)).length;
+            risk += evasiveCount * 8;
+            
+            // Check for inconsistencies in numbers
+            const numbers = text.match(/\d+/g) || [];
+            if (numbers.length > 5) {
+                const uniqueNumbers = [...new Set(numbers)];
+                if (uniqueNumbers.length !== numbers.length) risk += 15;
+            }
+            
+            // Pattern-based risk
+            const patternRisk = {
+                'normal': 0,
+                'hesitant': 25,
+                'evasive': 60,
+                'aggressive': 45,
+                'scripted': 70,
+                'inconsistent': 80
+            };
+            
+            risk += patternRisk[pattern] || 0;
+            
+            return Math.min(risk, 100);
+        }
+
+        function analyzeDocuments(idStatus, incomeStatus, bankStatus, addressStatus) {
+            const statusRisk = {
+                'verified': 0, 'minor-issues': 15, 'minor-discrepancy': 20, 'consistent': 0,
+                'suspicious': 50, 'major-discrepancy': 45, 'irregular-deposits': 35, 'partial': 25,
+                'tampered': 85, 'suspicious-format': 70, 'insufficient-history': 30, 'mismatch': 40,
+                'fake': 95, 'fabricated': 90, 'suspicious-transactions': 60, 'unverifiable': 55,
+                'manipulated': 85
+            };
+            
+            const risks = [idStatus, incomeStatus, bankStatus, addressStatus]
+                .map(status => statusRisk[status] || 0);
+            
+            return Math.round(risks.reduce((a, b) => a + b, 0) / 4);
+        }
+
+        function analyzeBehavior(pattern, channel) {
+            let risk = 0;
+            
+            const patternRisk = {
+                'normal': 0, 'hesitant': 20, 'evasive': 55, 'aggressive': 40, 'scripted': 65, 'inconsistent': 75
+            };
+            
+            const channelRisk = {
+                'phone': 0, 'video': 5, 'in-person': 0, 'chat': 15, 'email': 25
+            };
+            
+            risk += patternRisk[pattern] || 0;
+            risk += channelRisk[channel] || 0;
+            
+            return Math.min(risk, 100);
+        }
+
+        function analyzeConsistency(loanAmount, income, conversation) {
+            let risk = 0;
+            
+            // Debt-to-income ratio check
+            if (income > 0 && loanAmount > 0) {
+                const estimatedPayment = loanAmount * 0.012; // Rough monthly payment estimate
+                const dtiRatio = estimatedPayment / income;
+                
+                if (dtiRatio > 0.5) risk += 40;
+                else if (dtiRatio > 0.35) risk += 20;
+            }
+            
+            // Check for number inconsistencies in conversation
+            if (conversation) {
+                const mentionedAmounts = conversation.match(/\$?[\d,]+/g) || [];
+                if (mentionedAmounts.length > 0) {
+                    const hasInconsistentAmounts = mentionedAmounts.some(amount => {
+                        const num = parseInt(amount.replace(/[$,]/g, ''));
+                        return Math.abs(num - income) > income * 0.2 && Math.abs(num - loanAmount) > loanAmount * 0.1;
+                    });
+                    if (hasInconsistentAmounts) risk += 30;
+                }
+            }
+            
+            return Math.min(risk, 100);
+        }
+
+        function getRiskLevel(score) {
+            if (score < 30) return { level: 'LOW', color: 'green' };
+            if (score < 70) return { level: 'MEDIUM', color: 'yellow' };
+            return { level: 'HIGH', color: 'red' };
+        }
+
+        function updateRiskDisplay(analysis) {
+            document.getElementById('overallRiskScore').textContent = analysis.overallRisk + '%';
+            document.getElementById('convRisk').textContent = analysis.conversationRisk + '%';
+            document.getElementById('docRisk').textContent = analysis.documentRisk + '%';
+            document.getElementById('behaviorRisk').textContent = analysis.behaviorRisk + '%';
+            document.getElementById('consistencyRisk').textContent = analysis.consistencyRisk + '%';
+            
+            const riskLevelEl = document.getElementById('riskLevel');
+            riskLevelEl.textContent = analysis.riskLevel.level + ' RISK';
+            riskLevelEl.className = `mt-2 px-3 py-1 rounded-full text-sm font-medium bg-${analysis.riskLevel.color}-100 text-${analysis.riskLevel.color}-800`;
+            
+            // Update radar chart
+            updateRiskChart(analysis);
+        }
+
+        function updateRiskChart(analysis) {
+            const ctx = document.getElementById('riskRadarChart').getContext('2d');
+            
+            if (riskChart) {
+                riskChart.destroy();
+            }
+            
+            riskChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Conversation', 'Documents', 'Behavior', 'Consistency'],
+                    datasets: [{
+                        label: 'Risk Score',
+                        data: [analysis.conversationRisk, analysis.documentRisk, analysis.behaviorRisk, analysis.consistencyRisk],
+                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
+                        borderColor: 'rgba(239, 68, 68, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(239, 68, 68, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 20
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        }
+
+        function updateConversationInsights(conversation, analysis) {
+            const insights = document.getElementById('conversationInsights');
+            
+            if (!conversation || conversation.trim().length < 20) {
+                insights.innerHTML = `
+                    <div class="text-center text-slate-400 py-4">
+                        <div class="text-2xl mb-2">💬</div>
+                        <div>No conversation data provided</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            const suspiciousWords = ['maybe', 'approximately', 'not sure', 'varies', 'depends'];
+            const foundSuspicious = suspiciousWords.filter(word => conversation.toLowerCase().includes(word));
+            
+            let insightsHTML = '';
+            
+            if (analysis.conversationRisk > 50) {
+                insightsHTML += `
+                    <div class="bg-red-50 border-l-4 border-red-400 p-3 rounded">
+                        <div class="font-medium text-red-800">🚨 High Risk Conversation Patterns</div>
+                        <div class="text-red-700 text-sm mt-1">Multiple suspicious indicators detected in conversation</div>
+                    </div>
+                `;
+            }
+            
+            if (foundSuspicious.length > 0) {
+                insightsHTML += `
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
+                        <div class="font-medium text-yellow-800">⚠️ Evasive Language Detected</div>
+                        <div class="text-yellow-700 text-sm mt-1">Found: ${foundSuspicious.join(', ')}</div>
+                    </div>
+                `;
+            }
+            
+            const wordCount = conversation.split(' ').length;
+            if (wordCount < 50) {
+                insightsHTML += `
+                    <div class="bg-blue-50 border-l-4 border-blue-400 p-3 rounded">
+                        <div class="font-medium text-blue-800">ℹ️ Limited Conversation Data</div>
+                        <div class="text-blue-700 text-sm mt-1">Consider requesting additional information</div>
+                    </div>
+                `;
+            }
+            
+            if (!insightsHTML) {
+                insightsHTML = `
+                    <div class="bg-green-50 border-l-4 border-green-400 p-3 rounded">
+                        <div class="font-medium text-green-800">✅ Normal Conversation Patterns</div>
+                        <div class="text-green-700 text-sm mt-1">No significant red flags detected</div>
+                    </div>
+                `;
+            }
+            
+            insights.innerHTML = insightsHTML;
+        }
+
+        function generateFindings(convRisk, docRisk, behaviorRisk, consistencyRisk, data) {
+            const findings = [];
+            
+            if (convRisk > 60) {
+                findings.push({
+                    type: 'conversation',
+                    severity: 'high',
+                    message: 'Conversation analysis reveals evasive responses and inconsistent information patterns'
+                });
+            }
+            
+            if (docRisk > 70) {
+                findings.push({
+                    type: 'document',
+                    severity: 'high',
+                    message: 'Multiple document verification issues detected, possible tampering or fabrication'
+                });
+            }
+            
+            if (behaviorRisk > 50) {
+                findings.push({
+                    type: 'behavior',
+                    severity: 'medium',
+                    message: 'Applicant behavior shows signs of rehearsed responses or evasiveness'
+                });
+            }
+            
+            if (consistencyRisk > 40) {
+                findings.push({
+                    type: 'consistency',
+                    severity: 'medium',
+                    message: 'Information inconsistencies detected across application components'
+                });
+            }
+            
+            // Check for specific high-risk combinations
+            if (data.idDocStatus === 'fake' || data.incomeDocStatus === 'fabricated') {
+                findings.push({
+                    type: 'critical',
+                    severity: 'critical',
+                    message: 'CRITICAL: Evidence of document fabrication detected - immediate escalation required'
+                });
+            }
+            
+            return findings;
+        }
+
+        function generateActions(overall, conv, doc, behavior, consistency) {
+            const actions = [];
+            
+            if (overall >= 80) {
+                actions.push({
+                    priority: 'immediate',
+                    action: 'ESCALATE TO SENIOR ANALYST',
+                    description: 'Case requires immediate manual review by senior fraud analyst'
+                });
+            }
+            
+            if (doc > 60) {
+                actions.push({
+                    priority: 'high',
+                    action: 'Enhanced Document Verification',
+                    description: 'Request original documents and conduct third-party verification'
+                });
+            }
+            
+            if (conv > 50 || behavior > 50) {
+                actions.push({
+                    priority: 'medium',
+                    action: 'Additional Interview Required',
+                    description: 'Schedule follow-up interview to clarify inconsistencies'
+                });
+            }
+            
+            if (consistency > 40) {
+                actions.push({
+                    priority: 'medium',
+                    action: 'Cross-Reference Verification',
+                    description: 'Verify information across multiple sources and databases'
+                });
+            }
+            
+            if (overall < 30) {
+                actions.push({
+                    priority: 'low',
+                    action: 'Standard Processing',
+                    description: 'Application can proceed through normal approval workflow'
+                });
+            }
+            
+            return actions;
+        }
+
+        function showAnalysisResults(analysis, data) {
+            document.getElementById('analysisResults').classList.remove('hidden');
+            
+            // Show findings
+            const findingsEl = document.getElementById('suspiciousFindings');
+            if (analysis.findings.length === 0) {
+                findingsEl.innerHTML = `
+                    <div class="bg-green-50 border-l-4 border-green-400 p-4 rounded">
+                        <div class="font-medium text-green-800">✅ No Major Red Flags Detected</div>
+                        <div class="text-green-700 text-sm mt-1">Application appears to be within normal risk parameters</div>
+                    </div>
+                `;
+            } else {
+                findingsEl.innerHTML = analysis.findings.map(finding => {
+                    const colors = {
+                        'critical': 'red',
+                        'high': 'red',
+                        'medium': 'yellow',
+                        'low': 'blue'
+                    };
+                    const color = colors[finding.severity];
+                    const icons = {
+                        'critical': '🚨',
+                        'high': '⚠️',
+                        'medium': '🔍',
+                        'low': 'ℹ️'
+                    };
+                    const icon = icons[finding.severity];
+                    
+                    return `
+                        <div class="bg-${color}-50 border-l-4 border-${color}-400 p-4 rounded">
+                            <div class="font-medium text-${color}-800">${icon} ${finding.severity.toUpperCase()}: ${finding.type.charAt(0).toUpperCase() + finding.type.slice(1)} Risk</div>
+                            <div class="text-${color}-700 text-sm mt-1">${finding.message}</div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            // Show actions
+            const actionsEl = document.getElementById('recommendedActions');
+            actionsEl.innerHTML = analysis.actions.map(action => {
+                const colors = {
+                    'immediate': 'red',
+                    'high': 'orange',
+                    'medium': 'yellow',
+                    'low': 'green'
+                };
+                const color = colors[action.priority];
+                
+                return `
+                    <div class="bg-${color}-50 border-l-4 border-${color}-400 p-4 rounded">
+                        <div class="font-medium text-${color}-800">${action.action}</div>
+                        <div class="text-${color}-700 text-sm mt-1">${action.description}</div>
+                        <div class="text-xs text-${color}-600 mt-2">Priority: ${action.priority.toUpperCase()}</div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Generate detailed report
+            generateDetailedReport(analysis, data);
+        }
+
+        function generateDetailedReport(analysis, data) {
+            const reportEl = document.getElementById('detailedReport');
+            const timestamp = new Date().toLocaleString();
+            
+            reportEl.innerHTML = `
+                <div class="bg-slate-50 p-6 rounded-lg mb-6">
+                    <h4 class="text-lg font-semibold text-slate-800 mb-4">Fraud Detection Analysis Report</h4>
+                    
+                    <div class="grid grid-cols-2 gap-6 mb-4">
+                        <div>
+                            <h5 class="font-medium text-slate-700 mb-2">Application Details</h5>
+                            <div class="text-sm space-y-1">
+                                <div><strong>ID:</strong> ${data.appId}</div>
+                                <div><strong>Applicant:</strong> ${data.applicantName}</div>
+                                <div><strong>Loan Amount:</strong> $${data.loanAmount.toLocaleString()}</div>
+                                <div><strong>Monthly Income:</strong> $${data.monthlyIncome.toLocaleString()}</div>
+                                <div><strong>Analysis Date:</strong> ${timestamp}</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-medium text-slate-700 mb-2">Risk Assessment</h5>
+                            <div class="text-sm space-y-1">
+                                <div><strong>Overall Risk:</strong> ${analysis.overallRisk}% (${analysis.riskLevel.level})</div>
+                                <div><strong>Conversation Risk:</strong> ${analysis.conversationRisk}%</div>
+                                <div><strong>Document Risk:</strong> ${analysis.documentRisk}%</div>
+                                <div><strong>Behavioral Risk:</strong> ${analysis.behaviorRisk}%</div>
+                                <div><strong>Consistency Risk:</strong> ${analysis.consistencyRisk}%</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-t pt-4">
+                        <h5 class="font-medium text-slate-700 mb-2">Analysis Summary</h5>
+                        <p class="text-sm text-slate-600">
+                            ${getAnalysisSummary(analysis)}
+                        </p>
+                    </div>
+                    
+                    <div class="border-t pt-4 mt-4">
+                        <h5 class="font-medium text-slate-700 mb-2">Regulatory Compliance</h5>
+                        <p class="text-xs text-slate-500">
+                            This analysis has been conducted in accordance with KYC (Know Your Customer) and AML (Anti-Money Laundering) 
+                            regulations. All findings are based on objective data analysis and established risk indicators. 
+                            This report should be reviewed by qualified personnel before making final decisions.
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
+        function getAnalysisSummary(analysis) {
+            if (analysis.overallRisk >= 80) {
+                return "HIGH RISK APPLICATION: Multiple critical risk factors detected. This application shows strong indicators of potential fraud and requires immediate escalation to senior analysts. Do not proceed with automated processing.";
+            } else if (analysis.overallRisk >= 50) {
+                return "MEDIUM RISK APPLICATION: Several risk factors identified that warrant additional verification. Enhanced due diligence procedures should be implemented before making approval decisions.";
+            } else {
+                return "LOW RISK APPLICATION: Analysis indicates normal risk levels with no major red flags. Application can proceed through standard verification and approval processes with routine monitoring.";
+            }
+        }
+
+        function generateReport() {
+            const reportWindow = window.open('', '_blank');
+            const reportContent = document.getElementById('detailedReport').innerHTML;
+            
+            reportWindow.document.write(`
+                <html>
+                    <head>
+                        <title>Fraud Detection Report</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; margin: 20px; }
+                            .header { text-align: center; margin-bottom: 30px; }
+                            .content { max-width: 800px; margin: 0 auto; }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="header">
+                            <h1>Fraud Detection Analysis Report</h1>
+                            <p>Generated on ${new Date().toLocaleString()}</p>
+                        </div>
+                        <div class="content">
+                            ${reportContent}
+                        </div>
+                    </body>
+                </html>
+            `);
+            
+            reportWindow.document.close();
+        }
+
+        function escalateCase() {
+            alert('🚨 CASE ESCALATED\n\nThis application has been flagged for immediate review by a senior fraud analyst. The case will be prioritized in the manual review queue.\n\nEscalation ID: ESC-' + Date.now());
+        }
+
+        function clearForm() {
+            if (confirm('Are you sure you want to clear all form data?')) {
+                document.querySelectorAll('input, select, textarea').forEach(el => {
+                    el.value = '';
+                });
+                
+                document.getElementById('analysisResults').classList.add('hidden');
+                
+                // Reset risk display
+                document.getElementById('overallRiskScore').textContent = '-';
+                document.getElementById('convRisk').textContent = '-';
+                document.getElementById('docRisk').textContent = '-';
+                document.getElementById('behaviorRisk').textContent = '-';
+                document.getElementById('consistencyRisk').textContent = '-';
+                
+                const riskLevelEl = document.getElementById('riskLevel');
+                riskLevelEl.textContent = 'Not Analyzed';
+                riskLevelEl.className = 'mt-2 px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-600';
+                
+                // Reset conversation insights
+                document.getElementById('conversationInsights').innerHTML = `
+                    <div class="text-center text-slate-400 py-8">
+                        <div class="text-4xl mb-2">🔍</div>
+                        <div>Enter conversation data to see AI analysis</div>
+                    </div>
+                `;
+                
+                // Destroy chart
+                if (riskChart) {
+                    riskChart.destroy();
+                    riskChart = null;
+                }
+            }
+        }
+
+        // Auto-analyze on input change (debounced)
+        let analysisTimeout;
+        document.addEventListener('input', function(e) {
+            if (e.target.matches('input, select, textarea')) {
+                clearTimeout(analysisTimeout);
+                analysisTimeout = setTimeout(() => {
+                    const conversationText = document.getElementById('conversationText').value;
+                    if (conversationText && conversationText.length > 50) {
+                        // Quick conversation analysis for real-time feedback
+                        const quickAnalysis = {
+                            conversationRisk: analyzeConversation(conversationText, document.getElementById('responsePattern').value),
+                            documentRisk: 0,
+                            behaviorRisk: 0,
+                            consistencyRisk: 0
+                        };
+                        updateConversationInsights(conversationText, quickAnalysis);
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'981eea13b5519f43',t:'MTc1ODM0NjA1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
